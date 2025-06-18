@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="ValorAndo: el lugar donde el anime cobra vida a través de análisis, pasión y esencia auténtica." name="description"/>
+<meta content="anime, análisis anime, reviews anime, curiosidades anime, ValorAndo" name="keywords"/>
+<meta content="ValorAndo - Anime con Fuerza" property="og:title"/>
+<meta content="El alma del anime vive aquí. Análisis, rankings y pasión por el anime." property="og:description"/>
+<meta content="https://cdn-icons-png.flaticon.com/512/7586/7586824.png" property="og:image"/>
+<meta content="website" property="og:type"/>
+<meta content="https://tusitio.com/" property="og:url"/>
+<title>
+   ValorAndo - Anime con Fuerza
+  </title>
+<link href="https://cdn-icons-png.flaticon.com/512/7586/7586824.png" rel="icon" type="image/png"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<script defer="" src="https://unpkg.com/alpinejs">
+</script>
+<style>
+   body { background-color: #0b1120; color: #f1f5f9; }
+    .logo-container {
+      font-family: 'Courier New', monospace;
+      font-weight: 900;
+      font-size: 1.6rem;
+      position: relative;
+      color: #22d3ee;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .slash {
+      position: absolute;
+      top: -5px;
+      left: 12px;
+      height: 100%;
+      width: 2px;
+      background: linear-gradient(to bottom, #22d3ee, transparent);
+      transform: rotate(-25deg);
+      animation: slash-cut 1.2s ease-out forwards;
+    }
+    @keyframes slash-cut {
+      0% { height: 0%; opacity: 0; }
+      50% { height: 100%; opacity: 1; }
+      100% { height: 100%; opacity: 0; }
+    }
+    .katakana {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      font-size: 0.65rem;
+      color: #94a3b8;
+      letter-spacing: 0.2rem;
+      opacity: 0.8;
+    }
+    .logo-main span { display: inline-block; transform: skewX(-8deg); }
+    .logo-highlight {
+      background-color: #22d3ee;
+      color: #0b1120;
+      padding: 0 0.25em;
+      border-radius: 0.2em;
+      transform: skewX(8deg);
+      box-shadow: 0 0 10px #67e8f9, 0 0 20px #22d3ee;
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+    @keyframes pulse-glow {
+      0%, 100% {
+        box-shadow: 0 0 10px #67e8f9, 0 0 20px #22d3ee;
+      }
+      50% {
+        box-shadow: 0 0 20px #a5f3fc, 0 0 40px #67e8f9;
+      }
+    }
+    .section-title { color: #22d3ee; }
+    .card {
+      background-color: #111827;
+      border: 1px solid #1f2937;
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(34, 211, 238, 0.15);
+    }
+    input, textarea {
+      background-color: #1e293b;
+      color: #f1f5f9;
+      border: 1px solid #334155;
+    }
+    input::placeholder, textarea::placeholder { color: #94a3b8; }
+    .btn-outline {
+      border: 2px solid #22d3ee;
+      color: #22d3ee;
+      background: transparent;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .btn-outline:hover {
+      background-color: #22d3ee;
+      color: #0b1120;
+      box-shadow: 0 0 12px #22d3ee;
+    }
+    .btn-enviar {
+      background-color: #22d3ee;
+      color: #0b1120;
+      font-weight: 700;
+      font-size: 1.125rem;
+      padding: 0.75rem 2rem;
+      border-radius: 9999px;
+      box-shadow: 0 0 10px #67e8f9, 0 0 20px #22d3ee;
+      transition: all 0.3s ease;
+    }
+    .btn-enviar:hover {
+      background-color: #67e8f9;
+      color: #0b1120;
+      box-shadow: 0 0 16px #a5f3fc, 0 0 32px #22d3ee;
+    }
+  
+header {
+  background-color: rgba(15, 23, 42, 0.85); /* leve transparencia */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* un poco más marcado */
+  backdrop-filter: blur(6px); /* efecto de difuminado más notable */
+}
+
+#inicio {
+  position: relative;
+  background-image: url('https://wallpaperaccess.com/full/5677370.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  overflow: hidden;
+}
+
+#inicio::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* oscurecer para contraste */
+  z-index: 1;
+}
+
+#inicio::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(34,211,238,0.15), transparent 70%),
+              repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 2px, transparent 4px);
+  mix-blend-mode: screen;
+  animation: glowmove 20s linear infinite;
+  z-index: 2;
+}
+
+@keyframes glowmove {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+#inicio > * {
+  position: relative;
+  z-index: 3;
+}
+
+
+
+
+@keyframes animePulse {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+
+.nav-btn {
+  position: relative;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+  background: rgba(34, 211, 238, 0.06);
+  color: #22d3ee;
+  font-weight: 500;
+  border: 1px solid rgba(34, 211, 238, 0.3);
+}
+
+.nav-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0.5rem;
+  background: linear-gradient(90deg, #22d3ee, #0ea5e9);
+  opacity: 0;
+  transform: scale(0.95);
+  z-index: -1;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px rgba(34, 211, 238, 0.3);
+}
+
+.nav-btn:hover {
+  color: #0b1120;
+  font-weight: bold;
+  background-color: #22d3ee;
+  box-shadow: 0 0 8px #22d3ee, 0 0 16px #67e8f9;
+}
+
+.nav-btn:hover::before {
+  opacity: 1;
+  transform: scale(1.03);
+}
+
+
+
+
+@keyframes pulse-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 3px #22d3ee);
+  }
+  50% {
+    filter: drop-shadow(0 0 12px #67e8f9);
+  }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 1.8s infinite ease-in-out;
+}
+
+
+@keyframes svg-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 3px #22d3ee);
+  }
+  50% {
+    filter: drop-shadow(0 0 10px #67e8f9);
+  }
+}
+.animate-svg-glow {
+  animation: svg-glow 1.8s infinite ease-in-out;
+}
+
+.titulo-luminoso {
+}
+.fondo-anime {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  overflow: hidden;
+}
+.fondo-anime::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* oscurecer para contraste */
+  z-index: 1;
+}
+.fondo-anime::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(34,211,238,0.15), transparent 70%),
+              repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 2px, transparent 4px);
+  mix-blend-mode: screen;
+  animation: glowmove 20s linear infinite;
+  z-index: 2;
+}
+
+.btn-activa {
+  background-color: #22d3ee !important;
+  color: #0b1120 !important;
+  font-weight: bold;
+  box-shadow: 0 0 6px #22d3ee;
+}
+
+
+
+
+
+
+
+.titulo-principal {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #facc15;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #facc15;
+  padding-bottom: 0.5rem;
+  text-align: left;
+}
+
+.titulo-temporada {
+  font-size: 1.25rem;
+  font-weight: 900;
+  text-align: left;
+  color: #facc15;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+  
+.titulo-episodio {
+  color: #facc15;
+  font-weight: 700;
+}
+</style>
+<style>
+   50% {
+    box-shadow: 0 0 10px #67e8f9, 0 0 20px #a5f3fc;
+    filter: drop-shadow(0 0 8px #67e8f9);
+  }
+}
+
+/* .pagina-btn { box-shadow: none; } */
+  </style>
+<script defer="True" src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js">
+</script>
+</head>
+<body class="relative">
+<button aria-label="Volver arriba" class="fixed bottom-6 right-6 bg-cyan-600 text-black p-3 rounded-full shadow-lg hover:bg-cyan-400 z-50" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+   ↑
+  </button>
+<header class="bg-[#0b1120] shadow fixed w-full z-50">
+<div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+<div class="logo-container relative">
+<div class="logo-main flex items-center space-x-1">
+<span>
+       Val
+      </span>
+<span>
+       or
+      </span>
+<span class="logo-highlight">
+       Ando
+      </span>
+</div>
+<div class="slash">
+</div>
+<div class="katakana">
+      バロランド
+     </div>
+</div>
+<nav>
+<ul class="flex space-x-4 font-semibold text-cyan-200">
+<li>
+<a class="nav-btn" href="#inicio">
+        Inicio
+       </a>
+</li>
+<li>
+<a class="nav-btn" href="#sobre">
+        Sobre
+       </a>
+</li>
+<li>
+<a class="nav-btn" href="#anime">
+        Contenido
+       </a>
+</li>
+<li>
+<a class="nav-btn" href="#publicaciones">
+        Publicaciones
+       </a>
+</li>
+<li>
+<a class="nav-btn" href="#contacto">
+        Contacto
+       </a>
+</li>
+</ul>
+</nav>
+</div>
+</header>
+<section class="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gradient-to-r from-[#0b1120] to-[#111827] text-center md:text-left px-4 pt-32 pb-12 gap-8 relative overflow-hidden" id="inicio">
+<div class="md:w-1/2" x-data="{ show: false }" x-init="show = true" x-show="show" x-transition="">
+<h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-cyan-400 leading-tight drop-shadow-lg">
+     Tu portal al alma del anime
+    </h2>
+<p class="text-lg md:text-xl mb-6 max-w-xl mx-auto md:mx-0 text-gray-300">
+     Más que entretenimiento, el anime es emoción, historia y universo. En
+     <strong>
+      ValorAndo
+     </strong>
+     descubrirás lo que otros ignoran: 
+      conexiones ocultas, análisis profundos y una comunidad que siente tanto como tú.
+    </p>
+<a class="btn-outline inline-block" href="#anime">
+     Explorar contenido
+    </a>
+</div>
+<div class="md:w-1/2 max-w-md">
+<img alt="Misterio anime" class="w-full rounded-xl shadow-2xl border border-cyan-700" loading="lazy" src="img/protagonista-anime.png"/>
+</div>
+</section>
+<section class="py-16 px-6 relative overflow-hidden fondo-anime" id="sobre">
+<div class="absolute inset-0 bg-[repeating-linear-gradient(-45deg,_rgba(255,255,255,0.03)_0px,_rgba(255,255,255,0.03)_1px,_transparent_2px,_transparent_4px)] z-0">
+</div>
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_rgba(34,211,238,0.15),_transparent_70%)] z-0">
+</div>
+<div class="relative z-10 max-w-4xl mx-auto text-center">
+<h2 class="text-3xl font-bold section-title drop-shadow-lg mb-10">
+     ¿Por qué ValorAndo?
+    </h2>
+<div class="flex flex-col md:flex-row items-center gap-10 text-gray-300 text-left text-lg leading-relaxed">
+<div class="relative w-full flex justify-center items-center -ml-16">
+<div class="w-full max-w-md md:max-w-lg h-auto shadow-2xl rounded-xl overflow-hidden border-4 border-cyan-400">
+<img alt="Imagen ValorAndo" class="w-full h-full object-cover" loading="lazy" src="img/porque-valorando.jpg" style="filter: contrast(1.2) brightness(1.1);"/>
+</div>
+</div>
+<div class="flex flex-col gap-8 text-[1.05rem] leading-relaxed text-slate-300 md:basis-7/12">
+<div class="space-y-4">
+<p>
+<span class="text-cyan-400 font-bold">
+         ValorAndo
+        </span>
+        es para quienes saben que
+        <span class="text-white font-semibold">
+         el anime no solo se mira, se vive
+        </span>
+        .
+       </p>
+<p>
+<span class="text-gray-300">
+         Nos mueve la idea
+        </span>
+        de que cada escena, símbolo y pausa
+        <span class="text-white font-semibold italic">
+         esconde algo que vale la pena descubrir
+        </span>
+        . No explicamos,
+        <span class="text-cyan-300 font-semibold">
+         inspiramos a mirar distinto
+        </span>
+        .
+       </p>
+<p class="text-cyan-200 font-semibold italic">
+        Ya sea por curiosidad, nostalgia o pasión,
+        <span class="text-white font-bold">
+         siempre hay algo nuevo por sentir
+        </span>
+        .
+       </p>
+</div>
+<div class="grid sm:grid-cols-2 gap-6">
+<div>
+<h3 class="text-cyan-300 font-semibold">
+<span style="color: #22d3ee; font-weight: bold;">
+          ✦・
+         </span>
+<span style="color: #22d3ee; font-weight: 600; margin-left: 0.25rem;">
+          Reseñas con alma
+         </span>
+</h3>
+<p>
+<span class="text-cyan-200 font-medium">
+          Más que análisis
+         </span>
+         , compartimos miradas. Lo que el anime provoca en nosotros, y quizás también en ti.
+        </p>
+</div>
+<div>
+<h3 class="text-cyan-300 font-semibold">
+<span style="color: #22d3ee; font-weight: bold;">
+          ✦・
+         </span>
+<span style="color: #22d3ee; font-weight: 600; margin-left: 0.25rem;">
+          Opiniones que suman
+         </span>
+</h3>
+<p>
+<span class="text-cyan-200 font-medium">
+          Queremos abrir espacio
+         </span>
+         para el diálogo, la emoción y el respeto mutuo.
+        </p>
+</div>
+<div>
+<h3 class="text-cyan-300 font-semibold">
+<span style="color: #22d3ee; font-weight: bold;">
+          ✦・
+         </span>
+<span style="color: #22d3ee; font-weight: 600; margin-left: 0.25rem;">
+          Exploración ágil
+         </span>
+</h3>
+<p>
+<span class="text-cyan-200 font-medium">
+          Diseño pensado
+         </span>
+         para que descubras ese momento, esa idea o ese detalle que te marcó.
+        </p>
+</div>
+<div>
+<h3 class="text-cyan-300 font-semibold">
+<span style="color: #22d3ee; font-weight: bold;">
+          ✦・
+         </span>
+<span style="color: #22d3ee; font-weight: 600; margin-left: 0.25rem;">
+          Diseño con intención
+         </span>
+</h3>
+<p>
+<span class="italic text-cyan-200">
+          Oscuro, envolvente, cómodo.
+         </span>
+         Todo está hecho para acompañarte, no distraerte.
+        </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Contenido emocional y estratégico reorganizado -->
+<!-- Contenido emocional y estratégico -->
+</section>
+<section class="py-16 px-6 bg-[#0f172a] fondo-anime" id="anime">
+<div class="relative z-10 max-w-6xl mx-auto text-center">
+<h3 class="text-3xl font-bold mb-10 section-title">
+     Contenido Destacado
+    </h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="card p-6 rounded-lg">
+<h4 class="text-xl font-semibold mb-2 text-white">
+       Reviews
+      </h4>
+<p class="text-gray-400">
+       Análisis sin spoilers, sinceros y profundos de los títulos que valen la pena.
+      </p>
+</div>
+<div class="card p-6 rounded-lg">
+<h4 class="text-xl font-semibold mb-2 text-white">
+       Top Rankings
+      </h4>
+<p class="text-gray-400">
+       Personajes, peleas, bandas sonoras. Nuestra selección cada mes.
+      </p>
+</div>
+<div class="card p-6 rounded-lg">
+<h4 class="text-xl font-semibold mb-2 text-white">
+       Curiosidades
+      </h4>
+<p class="text-gray-400">
+       Secretos, detalles y conexiones ocultas que solo un verdadero fan notaría.
+      </p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-16 px-6 bg-[#0f172a] relative fondo-anime" id="publicaciones">
+<div class="relative z-10 max-w-7xl mx-auto">
+<h3 class="text-3xl font-bold mb-6 text-center section-title drop-shadow-lg titulo-luminoso">
+     Mis Publicaciones de Anime
+    </h3>
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6 max-w-4xl mx-auto">
+<div class="relative w-full sm:w-auto flex-1">
+<svg class="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-cyan-400 pointer-events-none animate-svg-glow" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+</path>
+</svg>
+<input class="w-full pl-12 py-3 rounded-full bg-[#1e293b] text-white border border-cyan-500 placeholder-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 shadow-md transition-all duration-300 ease-in-out" id="buscador" oninput="filtrarAnimes()" placeholder="Buscar anime..." type="text"/>
+</div>
+<div class="flex flex-wrap items-center gap-2" id="pagination-container">
+<!-- Botones de página se generan con JavaScript -->
+</div>
+</div>
+<div class="w-full min-h-[400px] group relative">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="tarjetas-grid">
+<div class="anime-card overflow-hidden card rounded-lg" data-index="0">
+<img alt="Attack on Titan" class="w-full h-48 object-cover" loading="lazy" src="img/attack-on-titan.jpg"/>
+<div class="p-4 text-left">
+<h4 class="text-xl font-semibold text-white mb-1 cursor-pointer hover:underline" onclick="mostrarDetalle('attack')">
+         Attack on Titan
+        </h4>
+<p class="text-gray-400 text-sm">
+         Nacido entre muros, Eren no sueña con paz... sueña con destruir la jaula que lo vio crecer.
+        </p>
+</div>
+</div>
+<div class="anime-card overflow-hidden card rounded-lg" data-index="1">
+<img alt="Cowboy Bebop" class="w-full h-48 object-cover" loading="lazy" src="img/cowboy-bebop.jpg"/>
+<div class="p-4 text-left">
+<h4 class="text-xl font-semibold text-white mb-1 cursor-pointer hover:underline" onclick="mostrarDetalle('bebop')">
+         Cowboy Bebop
+        </h4>
+<p class="text-gray-400 text-sm">
+         Spike no huye del pasado, solo baila con él… al ritmo lento de balas y jazz.
+        </p>
+</div>
+</div>
+<div class="anime-card overflow-hidden card rounded-lg" data-index="2">
+<img alt="Trigun Stampede" class="w-full h-48 object-cover" loading="lazy" src="img/trigun-stampede.jpg"/>
+<div class="p-4 text-left">
+<h4 class="text-xl font-semibold text-white mb-1 cursor-pointer hover:underline" onclick="mostrarDetalle('trigun')">
+         Trigun Stampede
+        </h4>
+<p class="text-gray-400 text-sm">
+         Vash sonríe para no llorar. Dispara por compasión. Y no mata… porque aún cree en redención.
+        </p>
+</div>
+</div>
+<div class="anime-card overflow-hidden card rounded-lg" data-index="3">
+<img alt="Jujutsu Kaisen" class="w-full h-48 object-cover" loading="lazy" src="img/jujutsu-kaisen.jpg"/>
+<div class="p-4 text-left">
+<h4 class="text-xl font-semibold text-white mb-1 cursor-pointer hover:underline" onclick="mostrarDetalle('jujutsu')">
+         Jujutsu Kaisen
+        </h4>
+<p class="text-gray-400 text-sm">
+         Yuji no teme morir. Teme existir sin sentido en un mundo donde el dolor tiene forma.
+        </p>
+</div>
+</div>
+<div class="anime-card overflow-hidden card rounded-lg" data-index="4">
+<img alt="One Piece" class="w-full h-48 object-cover" loading="lazy" src="img/one-piece.jpg"/>
+<div class="p-4 text-left">
+<h4 class="text-xl font-semibold text-white mb-1 cursor-pointer hover:underline" onclick="mostrarDetalle('onepiece')">
+         One Piece
+        </h4>
+<p class="text-gray-400 text-sm">
+         El tesoro no brilla en oro, sino en risas, mapas y sueños que no conocen jaulas.
+        </p>
+</div>
+</div>
+<div class="anime-card overflow-hidden card rounded-lg" data-index="5">
+<img alt="7 Pecados Capitales" class="w-full h-48 object-cover" loading="lazy" src="img/seven-deadly-sins.jpg"/>
+<div class="p-4 text-left">
+<h4 class="text-xl font-semibold text-white mb-1 cursor-pointer hover:underline" onclick="mostrarDetalle('pecados')">
+         Los 7 Pecados Capitales
+        </h4>
+<p class="text-gray-400 text-sm">
+         Acusados de traición, ahora portan la esperanza. Porque a veces, solo los caídos pueden levantar reinos.
+        </p>
+</div>
+</div>
+<div class="anime-card overflow-hidden card rounded-lg" data-index="6">
+<img alt="Overlord" class="w-full h-48 object-cover" loading="lazy" src="img/overlord.jpg"/>
+<div class="p-4 text-left">
+<h4 class="text-xl font-semibold text-white mb-1 cursor-pointer hover:underline" onclick="mostrarDetalle('overlord')">
+         Overlord
+        </h4>
+<p class="text-gray-400 text-sm">
+         Atrapado en un juego, eligió ser dios. Pero ni el poder supremo borra la soledad que arrastra.
+        </p>
+</div>
+</div>
+<div class="anime-card overflow-hidden card rounded-lg" data-index="7">
+<img alt="Naruto" class="w-full h-48 object-cover" loading="lazy" src="img/naruto.jpg"/>
+<div class="p-4 text-left">
+<h4 class="text-xl font-semibold text-white mb-1 cursor-pointer hover:underline" onclick="mostrarDetalle('naruto')">
+         Naruto
+        </h4>
+<p class="text-gray-400 text-sm">
+         Sin amor, aprendió a darlo. Sin amigos, soñó proteger a todos. Naruto es grito, promesa... y voluntad.
+        </p>
+</div>
+</div>
+<div class="anime-card overflow-hidden card rounded-lg" data-index="8">
+<img alt="Sakamoto Days" class="w-full h-48 object-cover" loading="lazy" src="img/sakamoto-days.jpg"/>
+<div class="p-4 text-left">
+<h4 class="text-xl font-semibold text-white mb-1 cursor-pointer hover:underline" onclick="mostrarDetalle('sakamoto')">
+         Sakamoto Days
+        </h4>
+<p class="text-gray-400 text-sm">
+         La paz lo salvó. Pero si tocas su hogar... el asesino que fue despierta con sonrisa y cuchillo.
+        </p>
+</div>
+</div>
+<div class="anime-card overflow-hidden card rounded-lg" data-index="9">
+<img alt="Bleach" class="w-full h-48 object-cover" loading="lazy" src="img/bleach.jpg"/>
+<div class="p-4 text-left">
+<h4 class="text-xl font-semibold text-white mb-1 cursor-pointer hover:underline" onclick="mostrarDetalle('bleach')">
+         Bleach
+        </h4>
+<p class="text-gray-400 text-sm">
+         Ichigo ve espíritus, pero carga con mucho más: la delgada línea entre humano y protector de la muerte.
+        </p>
+</div>
+</div>
+<div class="anime-card overflow-hidden card rounded-lg" data-index="10">
+<img alt="Kekkai Sensen" class="w-full h-48 object-cover" loading="lazy" src="img/kekkai-sensen.jpg"/>
+<div class="p-4 text-left">
+<h4 class="text-xl font-semibold text-white mb-1 cursor-pointer hover:underline" onclick="mostrarDetalle('kekkai')">
+         Kekkai Sensen
+        </h4>
+<p class="text-gray-400 text-sm">
+         En una ciudad caótica, donde lo imposible respira, un chico mira más allá... y decide quedarse.
+        </p>
+</div>
+</div>
+<div class="anime-card overflow-hidden card rounded-lg" data-index="11">
+<img alt="Mushoku Tensei" class="w-full h-48 object-cover" loading="lazy" src="img/mushoku-tensei.jpg"/>
+<div class="p-4 text-left">
+<h4 class="text-xl font-semibold text-white mb-1 cursor-pointer hover:underline" onclick="mostrarDetalle('mushoku')">
+         Mushoku Tensei
+        </h4>
+<p class="text-gray-400 text-sm">
+         Fracasó en una vida. Reencarnó en otra. Y jura, esta vez, no dejar escapar el milagro.
+        </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-16 px-6 bg-[#0b1120] fondo-anime" id="contacto">
+<div class="relative z-10 max-w-xl mx-auto text-center">
+<h3 class="text-3xl font-bold mb-6 section-title">
+     Contáctanos
+    </h3>
+<form action="https://formsubmit.co/valorando204@gmail.com" class="space-y-4" method="POST">
+<div class="text-left">
+<label class="block text-sm font-medium text-gray-400" for="nombre">
+       Tu nombre
+      </label>
+<input class="w-full p-3 rounded" id="nombre" name="nombre" placeholder="Ej: Yato" required="" type="text"/>
+</div>
+<div class="text-left">
+<label class="block text-sm font-medium text-gray-400" for="correo">
+       Tu correo
+      </label>
+<input class="w-full p-3 rounded" id="correo" name="correo" placeholder="Ej: dios@delcaos.jp" required="" type="email"/>
+</div>
+<div class="text-left">
+<label class="block text-sm font-medium text-gray-400" for="mensaje">
+       Tu mensaje
+      </label>
+<textarea class="w-full p-3 rounded" id="mensaje" name="mensaje" placeholder="Escribe tu mensaje..." required="" rows="4"></textarea>
+</div>
+<input name="_captcha" type="hidden" value="false"/>
+<input name="_next" type="hidden" value="https://tusitio.com/gracias.html"/>
+<button class="btn-enviar" type="submit">
+      Enviar mensaje
+     </button>
+</form>
+</div>
+</section>
+<footer class="bg-[#0f172a] py-6 text-center text-gray-400 fondo-anime">
+<div class="flex justify-center space-x-4 mb-2">
+<a class="hover:text-cyan-300" href="#">
+     Instagram
+    </a>
+<a class="hover:text-cyan-300" href="#">
+     YouTube
+    </a>
+<a class="hover:text-cyan-300" href="#">
+     Twitter
+    </a>
+</div>
+<p>
+    © 2025 ValorAndo. Anime que se siente. Anime que importa.
+   </p>
+</footer>
+<!-- DETALLES DE ANIME -->
+<section class="detalle-anime hidden py-12 px-6 bg-[#0f172a] min-h-screen fondo-anime" id="detalle-attack">
+<div class="relative z-10 max-w-4xl mx-auto">
+<button class="mb-6 px-4 py-2 bg-yellow-400 text-black font-bold rounded shadow-lg hover:bg-yellow-300 transition" onclick="volver()">
+     ← Volver
+    </button>
+<h2 class="titulo-principal">
+     Attack on Titan - Episodios
+    </h2>
+<div class="mb-4" x-data="{ open1: false }">
+<h2 @click="open1 = !open1" class="titulo-temporada">
+      Temporada 1
+     </h2>
+<div class="space-y-2 pl-2" x-show="open1" x-transition="">
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 1: A ti, dentro de 2000 años: La caída de Shiganshina (Parte 1)
+       </h3>
+<p class="text-gray-300">Un coloso emerge del cielo gris, y con un solo paso, sepulta la infancia de un niño que ya no volverá a temer.</p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 2: Aquel día: La caída de Shiganshina (Parte 2)
+       </h3>
+<p class="text-gray-300">El mundo colapsa con un grito. Una promesa nace entre ruinas: venganza, esperanza y furia en forma de niño.</p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 3: Una tenue luz en la desesperación: El resurgimiento de la humanidad (Parte 1)
+       </h3>
+<p class="text-gray-300">Entrenar es aprender a no morir. Y Eren, entre sudor y caídas, forja el cuerpo que sostendrá su rabia.</p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 4: La noche de la ceremonia de graduación: El resurgimiento de la humanidad (Parte 2)
+       </h3>
+<p class="text-gray-300">Una noche de logros. Pero también de sombras. Porque lo que viene… no respeta celebraciones.</p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 5: Primera batalla: La lucha por Trost (Parte 1)
+       </h3>
+<p class="text-gray-300">Los titanes regresan sin aviso. La muralla tiembla. Y el miedo, esta vez, devora de verdad.</p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 6: El mundo que ella vio: La lucha por Trost (Parte 2)
+       </h3>
+<p class="text-gray-300">Un silencio lo inunda todo. Eren ha caído. Y la esperanza... no sabe dónde esconderse.</p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 7: Pequeña hoja: La lucha por Trost (Parte 3)
+       </h3>
+<p class="text-gray-300">Una bestia se alza entre bestias. No muerde, defiende. Y en su puño... hay algo de justicia.</p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 8: Puedo oír su latido: La lucha por Trost (Parte 4)
+       </h3>
+<p class="text-gray-300">Temor y fe se enfrentan. ¿Matar al aliado o seguir al monstruo que nos salvó?</p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 9: Dónde fue el brazo izquierdo: La lucha por Trost (Parte 5)
+       </h3>
+<p class="text-gray-300">Regresó. Pero ya no es solo Eren. Es también aquello que juramos destruir.</p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 10: Respuesta: La lucha por Trost (Parte 6)
+       </h3>
+<p class="text-gray-300">Con el cañón al pecho, Eren decide. No como soldado... como sacrificio con nombre propio.</p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 11: Ídolo: La lucha por Trost (Parte 7)
+       </h3>
+<p class="text-gray-300">
+        El cañón apunta a Eren. Pero una llave, un sótano y una promesa frenan el disparo.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 12: Herida: La lucha por Trost (Parte 8)
+       </h3>
+<p class="text-gray-300">
+        La confianza es frágil. Pero en lo roto, los soldados aún eligen avanzar.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 13: Deseo primitivo: La lucha por Trost (Parte 9)
+       </h3>
+<p class="text-gray-300">
+        Un plan suicida y un instante de fe. El muro se retoma… al precio del alma.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 14: Aún no puedo mirar a sus ojos: La víspera del contraataque (Parte 1)
+       </h3>
+<p class="text-gray-300">
+        El titán en Eren no es lo que asusta. Es el reflejo que obliga a mirar dentro.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 15: Escuadrón de operaciones especiales: La víspera del contraataque (Parte 2)
+       </h3>
+<p class="text-gray-300">
+        Una pelea entre ideales. Y un juicio que no distingue entre monstruo y salvador.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 16: Qué hacer ahora: La víspera del contraataque (Parte 3)
+       </h3>
+<p class="text-gray-300">
+        Eren elige entre obedecer y resistir. Y su poder se vuelve una carga compartida.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 17: Titán hembra: La 57ª expedición más allá de los muros (Parte 1)
+       </h3>
+<p class="text-gray-300">
+        El bosque es trampa, y el enemigo… más humano que los propios humanos.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 18: Bosque de árboles gigantes: La 57ª expedición más allá de los muros (Parte 2)
+       </h3>
+<p class="text-gray-300">
+        La Legión es cazada. La bestia corre, grita… y busca a Eren.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 19: Mordisco: La 57ª expedición más allá de los muros (Parte 3)
+       </h3>
+<p class="text-gray-300">
+        Eren quiere luchar. Levi quiere pensar. El dilema: ¿sangre o estrategia?
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 20: Erwin Smith: La 57ª expedición más allá de los muros (Parte 4)
+       </h3>
+<p class="text-gray-300">
+        No todos los líderes son héroes. Algunos son sólo quienes deciden perder menos.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 21: Golpe devastador: La 57ª expedición más allá de los muros (Parte 5)
+       </h3>
+<p class="text-gray-300">
+        El titán femenino no busca matar. Busca secuestrar. Y Eren decide dejar de huir.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 22: Derrota: La 57ª expedición más allá de los muros (Parte 6)
+       </h3>
+<p class="text-gray-300">
+        El cuerpo queda, pero el alma se arrastra. La misión falla… pero la verdad sigue.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 23: Sonrisa: El asalto a Stohess (Parte 1)
+       </h3>
+<p class="text-gray-300">
+        La inocencia muere. El pasado vuelve a morder, y las muertes ya no caben en palabras.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 24: Compasión: El asalto a Stohess (Parte 2)
+       </h3>
+<p class="text-gray-300">
+        Eren elige entre amigos o humanidad. ¿Qué se sacrifica para seguir adelante?
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 25: Muro: El asalto a Stohess (Parte 3)
+       </h3>
+<p class="text-gray-300">
+        La batalla final. El grito de Eren rompe más que huesos: rompe certezas. Y el muro… tiene secretos.
+       </p>
+</div>
+</div>
+</div>
+<div class="mb-4" x-data="{ open2: false }">
+<h2 @click="open2 = !open2" class="titulo-temporada">
+      Temporada 2
+     </h2>
+<div class="space-y-2 pl-2" x-show="open2" x-transition="">
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 26: Titán bestia
+       </h3>
+<p class="text-gray-300">
+        Una nueva amenaza observa desde el muro. Pero esta vez no rompe puertas: habla.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 27: Estoy en casa
+       </h3>
+<p class="text-gray-300">
+        La calma se rompe. Los titanes están dentro. Y lo que era rutina, ahora es traición.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 28: A toda velocidad
+       </h3>
+<p class="text-gray-300">
+        Corre Connie, corre Sasha. Pero no todos llegan. La caza empezó hace rato.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 29: Soldado
+       </h3>
+<p class="text-gray-300">
+        Los titanes no solo destruyen. Recuerdan. Y a veces, lo que traen es peor que la muerte.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 30: Historia
+       </h3>
+<p class="text-gray-300">
+        Krista no es quien dice ser. Y Ymir... tampoco. La verdad se asoma bajo la nieve.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 31: Pecado
+       </h3>
+<p class="text-gray-300">
+        Un pasado enterrado. Un poder revelado. Ymir ya no puede ocultar lo que lleva dentro.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 32: Cierre
+       </h3>
+<p class="text-gray-300">
+        El muro se rompe por dentro. Lo que cae no es piedra: es confianza.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 33: El rugido del despertar
+       </h3>
+<p class="text-gray-300">
+        La traición tiene nombre. Y grita desde lo alto con voz amiga.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 34: Abrázame
+       </h3>
+<p class="text-gray-300">
+        Un titán abraza a su enemigo. No para matar, sino para explicar. ¿O para salvar?
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 35: Los niños
+       </h3>
+<p class="text-gray-300">
+        No hay buenos ni malos. Solo niños rotos por un mundo demasiado cruel.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 36: Asalto
+       </h3>
+<p class="text-gray-300">
+        La batalla es salvaje. No hay estrategia, solo furia. Y cuerpos que no quieren rendirse.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 37: Grito
+       </h3>
+<p class="text-gray-300">
+        Eren grita. Pero su grito no es de dolor... es algo más. Algo que puede cambiarlo todo.
+       </p>
+</div>
+</div>
+</div>
+<div class="mb-4" x-data="{ open3: false }">
+<h2 @click="open3 = !open3" class="titulo-temporada">
+      Temporada 3
+     </h2>
+<div class="space-y-2 pl-2" x-show="open3" x-transition="">
+<div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 38: Señal de humo</h3><p class="text-neutral-200">El inicio de una nueva operación pone a prueba la lealtad de los soldados y expone secretos que cambiarán todo.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 39: Dolor</h3><p class="text-neutral-200">La lucha entre titanes humanos se intensifica mientras los compañeros enfrentan sus miedos más profundos.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 40: Viejos recuerdos</h3><p class="text-neutral-200">Un regreso al pasado revela verdades olvidadas y la pesada carga de quienes portan la verdad.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 41: Confianza</h3><p class="text-neutral-200">El destino de los soldados recae en decisiones difíciles y en una confianza que pende de un hilo.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 42: Respuesta</h3><p class="text-neutral-200">Mientras los enemigos se acercan, los protagonistas deben elegir entre lo correcto y lo necesario.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 43: ¡Abre la puerta!</h3><p class="text-neutral-200">El misterio detrás de la muralla está a punto de revelarse, pero no sin un sacrificio.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 44: Deseo</h3><p class="text-neutral-200">El deseo de vivir, de luchar, de proteger, todo colisiona en un momento de quiebre emocional.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 45: Después del combate</h3><p class="text-neutral-200">Las heridas del cuerpo y del alma laten mientras la batalla da paso a la reflexión.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 46: El rincón del sótano</h3><p class="text-neutral-200">El anhelo de respuestas se convierte en la motivación para continuar.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 47: Amigo</h3><p class="text-neutral-200">Vínculos que trascienden la guerra resurgen cuando se enfrenta lo imposible.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 48: Bote de trueno</h3><p class="text-neutral-200">El rugido del pasado retumba con fuerza cuando el enemigo revela sus cartas.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 49: Noche de batalla</h3><p class="text-neutral-200">La calma antes de la tormenta tiñe el cielo de incertidumbre.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 50: La ciudad donde todo comenzó</h3><p class="text-neutral-200">El inicio del fin comienza justo donde comenzó todo.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 51: Lanza relámpago</h3><p class="text-neutral-200">Una nueva arma ilumina el campo de batalla con esperanza y destrucción.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 52: Despertar</h3><p class="text-neutral-200">La determinación de un guerrero despierta junto al peso de su legado.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 53: Juego perfecto</h3><p class="text-neutral-200">La estrategia se tiñe de desesperación cuando el Titán Bestia entra en escena.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 54: Héroe</h3><p class="text-neutral-200">El precio de la victoria es medido en sangre y valor.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 55: Blancos</h3><p class="text-neutral-200">Un disparo define destinos y expone el lado más humano de la guerra.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 56: La caverna del titán</h3><p class="text-neutral-200">La verdad se encuentra enterrada, esperando ser desenterrada.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 57: Ese día</h3><p class="text-neutral-200">La historia da un giro brutal que redefine todo lo que creían conocer.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 58: El ataque del titán</h3><p class="text-neutral-200">La pieza final del rompecabezas cae, revelando una historia mayor.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 59: Al otro lado de las murallas</h3><p class="text-neutral-200">Más allá de los muros no solo hay enemigos… también hay libertad.</p></div></div>
+</div>
+<div class="mb-4" x-data="{ open4: false }">
+<h2 @click="open4 = !open4" class="titulo-temporada">
+      Temporada 4
+     </h2>
+<div class="space-y-2 pl-2" x-show="open4" x-transition=""><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 60: Al otro lado del mar</h3><p class="text-neutral-200">Marley revela su poder militar mientras Eren planea su venganza desde las sombras.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 61: El tren</h3><p class="text-neutral-200">El conflicto interno crece entre los eldianos mientras el mundo los observa con miedo.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 62: Puerta del titán</h3><p class="text-neutral-200">La familia Tybur se prepara para un anuncio que cambiará la historia de Marley.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 63: Declaración de guerra</h3><p class="text-neutral-200">Eren hace su movimiento justo cuando Marley declara la guerra a Paradis.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 64: El asalto</h3><p class="text-neutral-200">Titán contra titán. La batalla sacude Liberio con furia implacable.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 65: La guerra del paraíso</h3><p class="text-neutral-200">La alianza de Marley responde con fuerza mientras los Survey Corps atacan sin piedad.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 66: Asalto</h3><p class="text-neutral-200">Levi y el equipo enfrentan a Zeke en una brutal coreografía de destrucción.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 67: Valiente</h3><p class="text-neutral-200">Un sacrificio inesperado conmueve a todos en medio del caos.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 68: El asesino</h3><p class="text-neutral-200">Gabi y Falco toman decisiones que afectarán su futuro en Paradis.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 69: Un argumento sólido</h3><p class="text-neutral-200">Floch se convierte en símbolo de una nueva rebelión interna.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 70: Traidor</h3><p class="text-neutral-200">Los ideales de Eren fracturan alianzas y amistades.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 71: Guía</h3><p class="text-neutral-200">Zeke comparte su plan de eutanasia con Eren. Paradis se divide.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 72: Los hijos del bosque</h3><p class="text-neutral-200">Una tragedia impulsada por el vino revela la verdadera amenaza de Zeke.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 73: Brutalidad</h3><p class="text-neutral-200">Una pelea entre hermanos de sangre y de creencias: Eren golpea con verdad cruda.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 74: Tan solo un peón</h3><p class="text-neutral-200">Armin y Mikasa enfrentan el dolor de una traición incomprensible.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 75: Cielo y tierra</h3><p class="text-neutral-200">El Titán Martillo se libera, la batalla apenas comienza.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 76: Juicio</h3><p class="text-neutral-200">El enfrentamiento final se acerca. Marley invade Shiganshina.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 77: Emboscada</h3><p class="text-neutral-200">La estrategia de Zeke da un giro inesperado y sangriento.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 78: Dos hermanos</h3><p class="text-neutral-200">Eren y Zeke intentan reunirse para activar el Retumbar.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 79: Recuerdos del futuro</h3><p class="text-neutral-200">Eren guía a Zeke por los recuerdos de Grisha para mostrarle su verdad.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 80: De ti hace 2000 años</h3><p class="text-neutral-200">Ymir, la esclava del poder, recibe por fin una voz.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 81: El rugido de la tierra</h3><p class="text-neutral-200">El Retumbar comienza. Millones de titanes marchan.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 82: Puñalada</h3><p class="text-neutral-200">La lucha interna entre eldianos decide el destino del mundo.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 83: Orgullo</h3><p class="text-neutral-200">Un grupo disidente se une para detener el genocidio global.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 84: Noche del fin</h3><p class="text-neutral-200">Viejos enemigos comparten el fuego en la antesala del sacrificio.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 85: Traidor</h3><p class="text-neutral-200">Aliados caen luchando por una causa que aún no comprenden del todo.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 86: Retrospectiva</h3><p class="text-neutral-200">Una batalla contra amigos del pasado deja marcas eternas.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 87: El amanecer de la humanidad</h3><p class="text-neutral-200">Los recuerdos de un mundo exterior contrastan con la guerra interna.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 88: El rugido del Retumbar</h3><p class="text-neutral-200">El terror del Retumbar asola continentes enteros.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 89: Alas de libertad</h3><p class="text-neutral-200">Los últimos guerreros de Paradis vuelan hacia su destino final.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 90: Juramento</h3><p class="text-neutral-200">Armin lidera el contraataque mientras los sentimientos se quiebran.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 91: El mundo sin Eren</h3><p class="text-neutral-200">El grupo reflexiona sobre el precio de detener a un amigo.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 92: Batalla final</h3><p class="text-neutral-200">Todo culmina en una lucha entre humanidad y desesperación.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 93: Camino eterno</h3><p class="text-neutral-200">Eren revela su visión final mientras los titanes avanzan.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 94: Amanecer</h3><p class="text-neutral-200">El Retumbar cesa. El mundo despierta con una herida que nunca sanará.</p></div></div>
+</div>
+</div>
+</section>
+<section class="detalle-anime hidden py-12 px-6 bg-[#0f172a] min-h-screen fondo-anime" id="detalle-bebop">
+<div class="relative z-10 max-w-4xl mx-auto">
+<button class="mb-6 px-4 py-2 bg-yellow-400 text-black font-bold rounded shadow-lg hover:bg-yellow-300 transition" onclick="volver()">
+     ← Volver
+    </button>
+<h2 class="titulo-principal">
+     Cowboy Bebop - Episodios
+    </h2>
+<div class="mb-4" x-data="{ open1: false }">
+<h2 @click="open1 = !open1" class="titulo-temporada">
+      Temporada 1
+     </h2>
+<div class="space-y-2 pl-2" x-show="open1" x-transition=""><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 1: Blues del asteroide</h3><p class="text-neutral-200">Tijuana arde bajo las estrellas. La bala corre, el amor se quiebra... y el humo escribe su propio final.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 2: El andar del perro callejero</h3><p class="text-neutral-200">No es solo un perro. Es un secreto con patas que muchos persiguen... y solo uno logrará entender.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 3: Mujeres Honky Tonk</h3><p class="text-neutral-200">Apostar con Faye es jugar con fuego. Belleza, peligro y deudas caminan en tacones.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 4: Revuelo en la puerta astral</h3><p class="text-neutral-200">Salvar la Tierra o salvar el alma. En el vacío, las decisiones pesan más que las armas.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 5: Balada de los ángeles caídos</h3><p class="text-neutral-200">El pasado lo espera con flores negras y disparos. Y en la iglesia... el duelo suena a jazz.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 6: Simpatía por el diablo</h3><p class="text-neutral-200">Notas suaves y ojos sin tiempo. Detrás del violín... duerme el infierno de no morir.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 7: Reina del metal pesado</h3><p class="text-neutral-200">El metal canta en la carretera estelar. Una mujer corre no por gloria... sino por redención.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 8: Vals por Venus</h3><p class="text-neutral-200">En Venus, incluso el aire parece rezar. Pero no toda fe salva... y no todo mártir es santo.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 9: Improvisando con Edward</h3><p class="text-neutral-200">Caos disfrazado de risa. Ed no llega: irrumpe. Y el Bebop ya nunca volverá a flotar igual.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 10: Elegía en Ganimedes</h3><p class="text-neutral-200">La lluvia cae sobre un reloj detenido. Jet busca respuestas... donde solo hay despedidas.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 11: Juguetes en el ático</h3><p class="text-neutral-200">Una amenaza invisible infecta la nave. Uno a uno caen. ¿Y si lo más letal no tiene forma?</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 12: Jazz de Júpiter (Parte 1)</h3><p class="text-neutral-200">En una ciudad cubierta de hielo, Spike reabre viejas heridas. No todas cicatrizan con tiempo.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 13: Jazz de Júpiter (Parte 2)</h3><p class="text-neutral-200">Un archivo olvidado. Una mujer sin memoria. Faye descubre que su pasado la estaba buscando.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 14: Rapsodia Bohemia</h3><p class="text-neutral-200">Un mensaje desde el más allá. Jet viaja entre coordenadas y emociones para reencontrarse con la pérdida.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 15: Samba de hongos</h3><p class="text-neutral-200">Ed y Ein tropiezan con hongos... y con la locura. ¿Quién dijo que el desierto es aburrido?</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 16: Habla como un niño</h3><p class="text-neutral-200">Una cinta VHS perdida revela la infancia de Faye. La verdad nunca se ve igual cuando uno ya ha cambiado.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 17: Caballos salvajes</h3><p class="text-neutral-200">Una nave averiada. Un viejo mecánico. Y en medio, Spike reflexionando sobre lo que aún le queda por volar.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 18: Pierrot el loco</h3><p class="text-neutral-200">Un asesino demente flota en la ciudad como un payaso de pesadilla. Spike no está listo para lo que viene.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 19: Mi divertido San Valentín</h3><p class="text-neutral-200">Un amor olvidado, una promesa enterrada. Faye reconstruye su identidad entre pistas y recuerdos.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 20: Boogie Woogie Feng Shui</h3><p class="text-neutral-200">Un código oculto. Una despedida disfrazada. Jet descubre que no todo lo perdido está muerto.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 21: Cowboy Funk</h3><p class="text-neutral-200">Un imitador con ansias de fama parodia a Spike. Pero no todos pueden bailar con el peligro.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 22: Rasguño mental</h3><p class="text-neutral-200">Una secta digital seduce con la promesa de trascender... hacia el vacío.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 23: Mujer de mala suerte</h3><p class="text-neutral-200">Faye decide irse. Pero algunas partidas no suenan como un portazo, sino como una melodía nostálgica.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 24: Blues auténtico (Parte 1)</h3><p class="text-neutral-200">Vicious vuelve. Spike lo sabe. Esta vez no hay marcha atrás: el duelo es inevitable.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 25: Blues auténtico (Parte 2)</h3><p class="text-neutral-200">Spike avanza por un edificio plagado de enemigos. Cada paso, un adiós. Cada bala, un recuerdo.</p></div></div>
+</div>
+</div>
+</section>
+<section class="detalle-anime hidden py-12 px-6 bg-[#0f172a] min-h-screen fondo-anime" id="detalle-trigun">
+<div class="relative z-10 max-w-4xl mx-auto">
+<button class="mb-6 px-4 py-2 bg-yellow-400 text-black font-bold rounded shadow-lg hover:bg-yellow-300 transition" onclick="volver()">
+     ← Volver
+    </button>
+<h2 class="titulo-principal">
+     Trigun Stampede - Episodios
+    </h2>
+<div class="mb-4" x-data="{ open1: false }">
+<h2 @click="open1 = !open1" class="titulo-temporada">
+      Temporada 1
+     </h2>
+<div class="space-y-2 pl-2" x-show="open1" x-transition=""><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 1: Nómada</h3><p class="text-neutral-200">Dicen que Vash destruye ciudades... pero ¿por qué nunca dispara?</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 2: Detrás de la huella</h3><p class="text-neutral-200">Una ciudad devastada. Knives aparece. Vash calla, pero su pasado grita.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 3: La paz y la bala</h3><p class="text-neutral-200">Salvar vidas sin disparar parece noble… hasta que las balas empiezan a hablar primero.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 4: Salvaje rugido</h3><p class="text-neutral-200">Un monstruo salido de un experimento pone a prueba la compasión de Vash con garras afiladas.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 5: Noche de partida</h3><p class="text-neutral-200">Una trampa entre aliados fuerza una decisión: correr o morir con dignidad.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 6: El hijo de la destrucción</h3><p class="text-neutral-200">Knives se convierte en leyenda con una sola aparición. Lo que destruye… no se puede reconstruir.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 7: Mentes divididas</h3><p class="text-neutral-200">Mientras la verdad se distorsiona, Vash empieza a creer que quizás no puede salvar a todos.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 8: Sombras de un ángel</h3><p class="text-neutral-200">Zazie mueve las piezas desde las sombras. Y Vash ya no sabe a quién mirar a los ojos.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 9: Puente al abismo</h3><p class="text-neutral-200">El secreto de las plantas se revela. Y con él, la razón por la que Vash no puede dormir.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 10: Paraíso perdido</h3><p class="text-neutral-200">Una nave estelar convertida en tumba. Vash enfrenta los restos de su origen.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 11: Millones de cicatrices</h3><p class="text-neutral-200">Dos hermanos, dos visiones. Una batalla que decide el destino de un mundo sediento.</p></div><div class="bg-gray-800 p-4 rounded mb-3"><h3 class="text-lg font-semibold titulo-episodio">Episodio 12: Fin y comienzo</h3><p class="text-neutral-200">Y tras todo... Vash desaparece. Pero su leyenda apenas comienza a escribirse.</p></div></div>
+</div>
+</div>
+</section>
+<script>
+   function mostrarDetalle(anime) {
+    // Ocultar todo el body excepto el detalle correspondiente
+    document.querySelectorAll("body > *:not(#detalle-" + anime + ")").forEach(el => el.style.display = "none");
+    document.getElementById("detalle-" + anime).classList.remove("hidden");
+    document.getElementById("detalle-" + anime).style.display = "block";
+  }
+  function volver() {
+    // Restaurar la visibilidad de todos los elementos del body
+    document.querySelectorAll("body > *").forEach(el => el.style.display = "");
+    document.querySelectorAll(".detalle-anime").forEach(el => el.classList.add("hidden"));
+    // Desplazar hacia la sección de publicaciones
+    document.getElementById("publicaciones").scrollIntoView({ behavior: "auto" });
+  }
+  </script>
+<script>
+   function filtrarAnimes() {
+  const input = document.getElementById("buscador").value.toLowerCase();
+  const tarjetas = document.querySelectorAll("#publicaciones .card");
+
+  tarjetas.forEach(card => {
+    const titulo = card.querySelector("h4").textContent.toLowerCase();
+    card.style.display = titulo.includes(input) ? "block" : "none";
+  });
+}
+  </script>
+<section class="detalle-anime hidden py-12 px-6 bg-[#0f172a] min-h-screen fondo-anime" id="detalle-jujutsu">
+<div class="relative z-10 max-w-4xl mx-auto">
+<button class="mb-6 px-4 py-2 bg-yellow-400 text-black font-bold rounded shadow-lg hover:bg-yellow-300 transition" onclick="volver()">
+     ← Volver
+    </button>
+<h2 class="titulo-principal">
+     Jujutsu Kaisen - Episodios
+    </h2>
+<div class="mb-4" x-data="{ open1: false }">
+<h2 @click="open1 = !open1" class="titulo-temporada">
+      Temporada 1
+     </h2>
+<div class="space-y-2 pl-2" x-show="open1" x-transition="">
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 1: Ryomen Sukuna
+       </h3>
+<p class="text-gray-300">
+        Yuji se traga una maldición para salvar a sus amigos. Así comienza su vida como recipiente del demonio más temido.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 2: Por mí mismo
+       </h3>
+<p class="text-gray-300">
+        La elección no es entre vivir o morir, sino entre morir ahora… o con propósito. Yuji elige el segundo camino.
+       </p>
+</div>
+</div>
+</div>
+<div class="mb-4" x-data="{ open2: false }">
+<h2 @click="open2 = !open2" class="titulo-temporada">
+      Temporada 2
+     </h2>
+<div class="space-y-2 pl-2" x-show="open2" x-transition="">
+</div>
+</div>
+</div>
+</section>
+<section class="detalle-anime hidden py-12 px-6 bg-[#0f172a] min-h-screen fondo-anime" id="detalle-onepiece">
+<div class="relative z-10 max-w-4xl mx-auto">
+<button class="mb-6 px-4 py-2 bg-yellow-400 text-black font-bold rounded shadow-lg hover:bg-yellow-300 transition" onclick="volver()">
+     ← Volver
+    </button>
+<h2 class="titulo-principal">
+     One Piece - Episodios
+    </h2>
+<div class="mb-4" x-data="{ open1: false }">
+<h2 @click="open1 = !open1" class="titulo-temporada">
+      Temporada 1
+     </h2>
+<div class="space-y-2 pl-2" x-show="open1" x-transition="">
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 1: ¡Soy Luffy! ¡El hombre que se convertirá en el Rey de los Piratas!
+       </h3>
+<p class="text-gray-300">
+        Luffy desafía a la lógica, a los piratas, al gobierno... y al océano. El rey de los piratas nace con una sonrisa.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 2: ¡El gran espadachín aparece! ¡Cazador de piratas Roronoa Zoro!
+       </h3>
+<p class="text-gray-300">
+        Zoro cae, sangra, se levanta. El espadachín de tres espadas se une a la tripulación más insensata y decidida del mar.
+       </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="detalle-anime hidden py-12 px-6 bg-[#0f172a] min-h-screen fondo-anime" id="detalle-pecados">
+<div class="relative z-10 max-w-4xl mx-auto">
+<button class="mb-6 px-4 py-2 bg-yellow-400 text-black font-bold rounded shadow-lg hover:bg-yellow-300 transition" onclick="volver()">
+     ← Volver
+    </button>
+<h2 class="titulo-principal">
+     Los 7 Pecados Capitales - Episodios
+    </h2>
+<div class="mb-4" x-data="{ open1: false }">
+<h2 @click="open1 = !open1" class="titulo-temporada">
+      Temporada 1
+     </h2>
+<div class="space-y-2 pl-2" x-show="open1" x-transition="">
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 1: Los siete pecados capitales
+       </h3>
+<p class="text-gray-300">
+        Elizabeth, una princesa desesperada, busca a los únicos que podrían salvar su reino: los más peligrosos de todos.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 2: La espada del santo caballero
+       </h3>
+<p class="text-gray-300">
+        Meliodas desenfunda con una sonrisa. Y tras la espada, se esconde una guerra milenaria... aún latente.
+       </p>
+</div>
+</div>
+</div>
+<div class="mb-4" x-data="{ open2: false }">
+<h2 @click="open2 = !open2" class="titulo-temporada">
+      Temporada 2
+     </h2>
+<div class="space-y-2 pl-2" x-show="open2" x-transition="">
+</div>
+</div>
+<div class="mb-4" x-data="{ open3: false }">
+<h2 @click="open3 = !open3" class="titulo-temporada">
+      Temporada 3
+     </h2>
+<div class="space-y-2 pl-2" x-show="open3" x-transition="">
+</div>
+</div>
+<div class="mb-4" x-data="{ open4: false }">
+<h2 @click="open4 = !open4" class="titulo-temporada">
+      Temporada 4
+     </h2>
+<div class="space-y-2 pl-2" x-show="open4" x-transition="">
+</div>
+</div>
+<div class="mb-4" x-data="{ open5: false }">
+<h2 @click="open5 = !open5" class="titulo-temporada">
+      Temporada 5
+     </h2>
+<div class="space-y-2 pl-2" x-show="open5" x-transition="">
+</div>
+</div>
+</div>
+</section>
+<section class="detalle-anime hidden py-12 px-6 bg-[#0f172a] min-h-screen fondo-anime" id="detalle-overlord">
+<div class="relative z-10 max-w-4xl mx-auto">
+<button class="mb-6 px-4 py-2 bg-yellow-400 text-black font-bold rounded shadow-lg hover:bg-yellow-300 transition" onclick="volver()">
+     ← Volver
+    </button>
+<h2 class="titulo-principal">
+     Overlord - Episodios
+    </h2>
+<div class="mb-4" x-data="{ open1: false }">
+<h2 @click="open1 = !open1" class="titulo-temporada">
+      Temporada 1
+     </h2>
+<div class="space-y-2 pl-2" x-show="open1" x-transition="">
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 1: El fin y el principio
+       </h3>
+<p class="text-gray-300">
+        Momonga se despide del mundo real… y despierta como amo absoluto de una tierra donde la fantasía se volvió ley.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 2: El guardián de Nazarick
+       </h3>
+<p class="text-gray-300">
+        Las piezas del tablero de Nazarick se mueven. Comienza el juego… pero esta vez, la realidad ya no tiene reglas.
+       </p>
+</div>
+</div>
+</div>
+<div class="mb-4" x-data="{ open2: false }">
+<h2 @click="open2 = !open2" class="titulo-temporada">
+      Temporada 2
+     </h2>
+<div class="space-y-2 pl-2" x-show="open2" x-transition="">
+</div>
+</div>
+<div class="mb-4" x-data="{ open3: false }">
+<h2 @click="open3 = !open3" class="titulo-temporada">
+      Temporada 3
+     </h2>
+<div class="space-y-2 pl-2" x-show="open3" x-transition="">
+</div>
+</div>
+<div class="mb-4" x-data="{ open4: false }">
+<h2 @click="open4 = !open4" class="titulo-temporada">
+      Temporada 4
+     </h2>
+<div class="space-y-2 pl-2" x-show="open4" x-transition="">
+</div>
+</div>
+</div>
+</section>
+<section class="detalle-anime hidden py-12 px-6 bg-[#0f172a] min-h-screen fondo-anime" id="detalle-naruto">
+<div class="relative z-10 max-w-4xl mx-auto">
+<button class="mb-6 px-4 py-2 bg-yellow-400 text-black font-bold rounded shadow-lg hover:bg-yellow-300 transition" onclick="volver()">
+     ← Volver
+    </button>
+<h2 class="titulo-principal">
+     Naruto - Episodios
+    </h2>
+<div class="mb-4" x-data="{ open1: false }">
+<h2 @click="open1 = !open1" class="titulo-temporada">
+      Temporada 1
+     </h2>
+<div class="space-y-2 pl-2" x-show="open1" x-transition="">
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 1: ¡Naruto Uzumaki!
+       </h3>
+<p class="text-gray-300">
+        Un niño ignorado por todos sueña con ser reconocido. La bestia dentro de él ruge, pero su corazón ruge más fuerte.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 2: ¡Mi nombre es Konohamaru!
+       </h3>
+<p class="text-gray-300">
+        Konohamaru aparece como reflejo. Dos caminos marcados por el dolor… pero también por la voluntad de fuego.
+       </p>
+</div>
+</div>
+</div>
+<div class="mb-4" x-data="{ open2: false }">
+<h2 @click="open2 = !open2" class="titulo-temporada">
+      Temporada 2
+     </h2>
+<div class="space-y-2 pl-2" x-show="open2" x-transition="">
+</div>
+</div>
+<div class="mb-4" x-data="{ open3: false }">
+<h2 @click="open3 = !open3" class="titulo-temporada">
+      Temporada 3
+     </h2>
+<div class="space-y-2 pl-2" x-show="open3" x-transition="">
+</div>
+</div>
+<div class="mb-4" x-data="{ open4: false }">
+<h2 @click="open4 = !open4" class="titulo-temporada">
+      Temporada 4
+     </h2>
+<div class="space-y-2 pl-2" x-show="open4" x-transition="">
+</div>
+</div>
+<div class="mb-4" x-data="{ open5: false }">
+<h2 @click="open5 = !open5" class="titulo-temporada">
+      Temporada 5
+     </h2>
+<div class="space-y-2 pl-2" x-show="open5" x-transition="">
+</div>
+</div>
+</div>
+</section>
+<section class="detalle-anime hidden py-12 px-6 bg-[#0f172a] min-h-screen fondo-anime" id="detalle-sakamoto">
+<div class="relative z-10 max-w-4xl mx-auto">
+<button class="mb-6 px-4 py-2 bg-yellow-400 text-black font-bold rounded shadow-lg hover:bg-yellow-300 transition" onclick="volver()">
+     ← Volver
+    </button>
+<h2 class="titulo-principal">
+     Sakamoto Days - Episodios
+    </h2>
+<div class="mb-4" x-data="{ open1: false }">
+<h2 @click="open1 = !open1" class="titulo-temporada">
+      Temporada 1
+     </h2>
+<div class="space-y-2 pl-2" x-show="open1" x-transition="">
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 1: El regreso del asesino
+       </h3>
+<p class="text-gray-300">
+        Sakamoto vive entre estanterías y dulces, pero basta una amenaza... y el asesino imbatible respira de nuevo.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 2: Cliente problemático
+       </h3>
+<p class="text-gray-300">
+        Un viejo enemigo intenta borrar su retiro. Y Sakamoto demuestra que ser padre no es sinónimo de debilidad.
+       </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="detalle-anime hidden py-12 px-6 bg-[#0f172a] min-h-screen fondo-anime" id="detalle-bleach">
+<div class="relative z-10 max-w-4xl mx-auto">
+<button class="mb-6 px-4 py-2 bg-yellow-400 text-black font-bold rounded shadow-lg hover:bg-yellow-300 transition" onclick="volver()">
+     ← Volver
+    </button>
+<h2 class="titulo-principal">
+     Bleach - Episodios
+    </h2>
+<div class="mb-4" x-data="{ open1: false }">
+<h2 @click="open1 = !open1" class="titulo-temporada">
+      Temporada 1
+     </h2>
+<div class="space-y-2 pl-2" x-show="open1" x-transition="">
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 1: El día que me convertí en Shinigami
+       </h3>
+<p class="text-gray-300">
+        La muerte llega a su puerta, y él le responde con una espada. Ichigo Kurosaki se convierte en el protector de dos mundos.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 2: Un trabajo de shinigami
+       </h3>
+<p class="text-gray-300">
+        El deber de un shinigami es guiar las almas. Ichigo lo asume... aunque apenas entiende el precio que eso implica.
+       </p>
+</div>
+</div>
+</div>
+<div class="mb-4" x-data="{ open2: false }">
+<h2 @click="open2 = !open2" class="titulo-temporada">
+      Temporada 2
+     </h2>
+<div class="space-y-2 pl-2" x-show="open2" x-transition="">
+</div>
+</div>
+<div class="mb-4" x-data="{ open3: false }">
+<h2 @click="open3 = !open3" class="titulo-temporada">
+      Temporada 3
+     </h2>
+<div class="space-y-2 pl-2" x-show="open3" x-transition="">
+</div>
+</div>
+<div class="mb-4" x-data="{ open4: false }">
+<h2 @click="open4 = !open4" class="titulo-temporada">
+      Temporada 4
+     </h2>
+<div class="space-y-2 pl-2" x-show="open4" x-transition="">
+</div>
+</div>
+<div class="mb-4" x-data="{ open5: false }">
+<h2 @click="open5 = !open5" class="titulo-temporada">
+      Temporada 5
+     </h2>
+<div class="space-y-2 pl-2" x-show="open5" x-transition="">
+</div>
+</div>
+<div class="mb-4" x-data="{ open6: false }">
+<h2 @click="open6 = !open6" class="titulo-temporada">
+      Temporada 6
+     </h2>
+<div class="space-y-2 pl-2" x-show="open6" x-transition="">
+</div>
+</div>
+<div class="mb-4" x-data="{ open7: false }">
+<h2 @click="open7 = !open7" class="titulo-temporada">
+      Temporada 7
+     </h2>
+<div class="space-y-2 pl-2" x-show="open7" x-transition="">
+</div>
+</div>
+<div class="mb-4" x-data="{ open8: false }">
+<h2 @click="open8 = !open8" class="titulo-temporada">
+      Temporada 8
+     </h2>
+<div class="space-y-2 pl-2" x-show="open8" x-transition="">
+</div>
+</div>
+<div class="mb-4" x-data="{ open9: false }">
+<h2 @click="open9 = !open9" class="titulo-temporada">
+      Temporada 9
+     </h2>
+<div class="space-y-2 pl-2" x-show="open9" x-transition="">
+</div>
+</div>
+<div class="mb-4" x-data="{ open10: false }">
+<h2 @click="open10 = !open10" class="titulo-temporada">
+      Temporada 10
+     </h2>
+<div class="space-y-2 pl-2" x-show="open10" x-transition="">
+</div>
+</div>
+<div class="mb-4" x-data="{ open11: false }">
+<h2 @click="open11 = !open11" class="titulo-temporada">
+      Temporada 11
+     </h2>
+<div class="space-y-2 pl-2" x-show="open11" x-transition="">
+</div>
+</div>
+<div class="mb-4" x-data="{ open12: false }">
+<h2 @click="open12 = !open12" class="titulo-temporada">
+      Temporada 12
+     </h2>
+<div class="space-y-2 pl-2" x-show="open12" x-transition="">
+</div>
+</div>
+<div class="mb-4" x-data="{ open13: false }">
+<h2 @click="open13 = !open13" class="titulo-temporada">
+      Temporada 13
+     </h2>
+<div class="space-y-2 pl-2" x-show="open13" x-transition="">
+</div>
+</div>
+<div class="mb-4" x-data="{ open14: false }">
+<h2 @click="open14 = !open14" class="titulo-temporada">
+      Temporada 14
+     </h2>
+<div class="space-y-2 pl-2" x-show="open14" x-transition="">
+</div>
+</div>
+<div class="mb-4" x-data="{ open15: false }">
+<h2 @click="open15 = !open15" class="titulo-temporada">
+      Temporada 15
+     </h2>
+<div class="space-y-2 pl-2" x-show="open15" x-transition="">
+</div>
+</div>
+<div class="mb-4" x-data="{ open16: false }">
+<h2 @click="open16 = !open16" class="titulo-temporada">
+      Temporada 16
+     </h2>
+<div class="space-y-2 pl-2" x-show="open16" x-transition="">
+</div>
+</div>
+<div class="mb-4" x-data="{ open17: false }">
+<h2 @click="open17 = !open17" class="titulo-temporada">
+      Temporada 17
+     </h2>
+<div class="space-y-2 pl-2" x-show="open17" x-transition="">
+</div>
+</div>
+</div>
+</section>
+<section class="detalle-anime hidden py-12 px-6 bg-[#0f172a] min-h-screen fondo-anime" id="detalle-kekkai">
+<div class="relative z-10 max-w-4xl mx-auto">
+<button class="mb-6 px-4 py-2 bg-yellow-400 text-black font-bold rounded shadow-lg hover:bg-yellow-300 transition" onclick="volver()">
+     ← Volver
+    </button>
+<h2 class="titulo-principal">
+     Kekkai Sensen - Episodios
+    </h2>
+<div class="mb-4" x-data="{ open1: false }">
+<h2 @click="open1 = !open1" class="titulo-temporada">
+      Temporada 1
+     </h2>
+<div class="space-y-2 pl-2" x-show="open1" x-transition="">
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 1: Una ciudad... un mundo más allá
+       </h3>
+<p class="text-gray-300">
+        Leonardo cambia sus ojos por el milagro de su hermana. Y en Hellsalem’s Lot, los milagros tienen precio.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 2: El lugar que no debes pisar
+       </h3>
+<p class="text-gray-300">
+        Libra le abre sus puertas, y el caos lo abraza. Monstruos, ciencia y maldiciones coexisten sin pedir permiso.
+       </p>
+</div>
+</div>
+</div>
+<div class="mb-4" x-data="{ open2: false }">
+<h2 @click="open2 = !open2" class="titulo-temporada">
+      Temporada 2
+     </h2>
+<div class="space-y-2 pl-2" x-show="open2" x-transition="">
+</div>
+</div>
+</div>
+</section>
+<section class="detalle-anime hidden py-12 px-6 bg-[#0f172a] min-h-screen fondo-anime" id="detalle-mushoku">
+<div class="relative z-10 max-w-4xl mx-auto">
+<button class="mb-6 px-4 py-2 bg-yellow-400 text-black font-bold rounded shadow-lg hover:bg-yellow-300 transition" onclick="volver()">
+     ← Volver
+    </button>
+<h2 class="titulo-principal">
+     Mushoku Tensei - Episodios
+    </h2>
+<div class="mb-4" x-data="{ open1: false }">
+<h2 @click="open1 = !open1" class="titulo-temporada">
+      Temporada 1
+     </h2>
+<div class="space-y-2 pl-2" x-show="open1" x-transition="">
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 1: Un hombre desempleado y desesperado
+       </h3>
+<p class="text-gray-300">
+        Muere como cobarde, despierta como niño. En este mundo mágico, tiene una segunda oportunidad… y sabe que no puede fallar.
+       </p>
+</div>
+<div class="bg-gray-800 p-4 rounded mb-3">
+<h3 class="text-xl font-semibold titulo-episodio">
+        Episodio 2: Maestro
+       </h3>
+<p class="text-gray-300">
+        Roxy lo guía, pero el aprendizaje no es solo mágico: es humano. Y cada hechizo es un paso hacia su redención.
+       </p>
+</div>
+</div>
+</div>
+<div class="mb-4" x-data="{ open2: false }">
+<h2 @click="open2 = !open2" class="titulo-temporada">
+      Temporada 2
+     </h2>
+<div class="space-y-2 pl-2" x-show="open2" x-transition="">
+</div>
+</div>
+</div>
+</section>
+<script>
+   document.addEventListener("DOMContentLoaded", function () {
+  const tarjetas = document.querySelectorAll(".anime-card");
+  const porPagina = 8;
+  let paginaActual = 0;
+
+  function mostrarPagina(pagina) {
+    paginaActual = pagina;
+    tarjetas.forEach((card, i) => {
+      card.style.display = (i >= pagina * porPagina && i < (pagina + 1) * porPagina) ? "block" : "none";
+    });
+
+    document.querySelectorAll(".pagina-btn").forEach((btn) => {
+      btn.classList.remove("btn-activa");
+      if (parseInt(btn.dataset.pagina) === pagina) {
+        btn.classList.add("btn-activa");
+      }
+    });
+  }
+
+  function crearBotonesPaginacion() {
+    const totalPaginas = Math.ceil(tarjetas.length / porPagina);
+    const contenedor = document.getElementById("pagination-container");
+
+    for (let i = 0; i < totalPaginas; i++) {
+      const btn = document.createElement("button");
+      btn.textContent = i + 1;
+      btn.className = "pagina-btn nav-btn shadow-sm";
+      btn.dataset.pagina = i;
+
+      btn.addEventListener("click", () => mostrarPagina(i));
+      contenedor.appendChild(btn);
+    }
+
+    // Llamar mostrarPagina después de haber agregado los botones
+    setTimeout(() => mostrarPagina(0), 0);
+  }
+
+  crearBotonesPaginacion();
+});
+  </script>
+</body>
+</html>
